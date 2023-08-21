@@ -8,7 +8,6 @@ const app = express();
 
 // 1) Midlleware
 app.use(morgan('dev'));
-
 app.use(express.json());
 
 // create middleware -> insert middleware function to stack using app.use()
@@ -28,13 +27,6 @@ app.use((req, res, next) => {
 // 3) Route => using middleware
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/users', userRouter);
-
-// app.get('/api/v1/tours', getAllTours);
-// app.post('/api/v1/tours', createTour);
-// : to assign, ? to optisional
-// app.get('/api/v1/tours/:id', getTour);
-// app.patch('/api/v1/tours/:id', updateTour);
-// app.delete('/api/v1/tours/:id', deleteTour);
 
 // 4) Start Server
 
