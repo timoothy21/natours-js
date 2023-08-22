@@ -15,10 +15,10 @@ app.use(express.json());
 app.use(express.static(`${__dirname}/public`));
 
 // create middleware -> insert middleware function to stack using app.use()
-app.use((req, res, next) => {
-  console.log('Hello from the middleware');
-  next();
-});
+// app.use((req, res, next) => {
+//   console.log('Hello from the middleware');
+//   next();
+// });
 
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
