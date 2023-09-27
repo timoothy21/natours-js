@@ -102,7 +102,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   }
 
   // 4) Check if user changed password afther the token was issue
-  console.log(freshUser.changedPasswordAfter(decoded.iat));
+  // console.log(freshUser.changedPasswordAfter(decoded.iat));
   if (freshUser.changedPasswordAfter(decoded.iat)) {
     return next(
       new AppError('User recently changed password! Please login again', 401),
@@ -136,14 +136,14 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
 
   // 2) Generate the random reset token
   const resetToken = user.createPasswordResetToken();
-  console.log(resetToken);
+  // console.log(resetToken);
   await user.save({ validateBeforeSave: false });
 
   // 3) Send it to user's email
   const resetURL = `${req.protocol}://${req.get(
     'host',
   )}/api/v1/users/resetPassword/${resetToken}`;
-  console.log(resetURL);
+  // console.log(resetURL);
 
   const message = `Forgot your password? Submit a Patch request with your new password and passwordConfirm to:${resetURL} \nIf you didn't forgot your password, please ignore this email`;
   try {
