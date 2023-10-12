@@ -111,6 +111,9 @@ const tourSchema = new mongoose.Schema(
   },
 );
 
+// For improving read performance with index and easier find the data
+tourSchema.index({ price: 1 });
+
 tourSchema.virtual('durationWeeks').get(function () {
   return this.duration / 7;
 });
