@@ -11,9 +11,3 @@ class AppError extends Error {
 }
 
 module.exports = AppError;
-
-// const err = new Error('');
-// err.status = 'fail';
-// err.statusCode = 404;
-
-// next(err);
